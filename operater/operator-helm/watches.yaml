@@ -1,0 +1,6 @@
+# Use the 'create api' subcommand to add watches to this file.
+- group: k8alerts.my.domain
+  version: v1
+  kind: Chart
+  chart: helm-charts/chart
+#+kubebuilder:scaffold:watch

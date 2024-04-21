@@ -1,0 +1,27 @@
+# permissions for end users to view charts.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: chart-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: operator-helm
+    app.kubernetes.io/part-of: operator-helm
+    app.kubernetes.io/managed-by: kustomize
+  name: chart-viewer-role
+rules:
+- apiGroups:
+  - k8alerts.my.domain
+  resources:
+  - charts
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - k8alerts.my.domain
+  resources:
+  - charts/status
+  verbs:
+  - get

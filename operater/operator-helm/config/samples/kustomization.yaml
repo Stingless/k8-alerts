@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- k8alerts_v1_chart.yaml
+#+kubebuilder:scaffold:manifestskustomizesamples
