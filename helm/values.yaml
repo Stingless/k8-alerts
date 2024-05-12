@@ -1,0 +1,53 @@
+# Default values for k8s-alerts.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+
+# clusterName: "Change-Me"
+# slackWebhookUrl: "https://hooks.slack.com/services/Change-Me"
+#slackWebhookUrlSecretKeyRef:
+#  key: "slackWebhookUrl"
+#  name: "k8s-alerts"
+slackChannel: "k8-alerts-nonprod"
+slackUsername: "k8s-alerts"
+muteSeconds: 600
+ignoreRestartCount: 30
+
+# A set of namespaces to be ignored. This should be provided as a comma-separated list or a regular expression.
+ignoredNamespaces: ""
+# A set of pod name prefixes to be ignored. This should be provided as a comma-separated list or a regular expression.
+ignoredPodNamePrefixes: ""
+
+# A set of namespaces to be watched. This should be provided as a comma-separated list or a regular expression.
+watchedNamespaces: ""
+# A set of pod name prefixes to be watched. This should be provided as a comma-separated list or a regular expression.
+watchedPodNamePrefixes: ""
+
+# Whether restart events with an exit code of 0 should be ignored, true or false
+ignoreRestartsWithExitCodeZero: false
+
+image:
+  repository: rahulk789/k8s-alerts
+  tag: "latest"
+
+resources: 
+  limits:
+    cpu: 50m
+    memory: 100Mi
+  requests:
+    cpu: 20m
+    memory: 50Mi
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
